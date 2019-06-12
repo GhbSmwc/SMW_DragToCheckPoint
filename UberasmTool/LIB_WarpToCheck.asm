@@ -289,12 +289,12 @@ Aiming:
 			LDX $0F
 			STX $4202
 			STA $4203
-			;NOP #4
+			NOP #4
 			LDX $4217
 			XBA
 			STA $4203
 			
-			;BRA $00
+			BRA $00
 			REP #$21
 			TXA
 			ADC $4216
@@ -304,11 +304,11 @@ Aiming:
 			LDX $02
 			STX $4202
 			STA $4203
-			;NOP #4
+			NOP #4
 			LDX $4217
 			XBA
 			STA $4203
-			;BRA $00
+			BRA $00
 			REP #$21
 			TXA
 			ADC $4216
@@ -323,11 +323,11 @@ Aiming:
 			STA $4202
 			LDA $04
 			STA $4203
-			;NOP #4
+			NOP #4
 			LDX $4217
 			LDA $05
 			STA $4203
-			;BRA $00
+			BRA $00
 			REP #$21
 			TXA
 			ADC $4216
