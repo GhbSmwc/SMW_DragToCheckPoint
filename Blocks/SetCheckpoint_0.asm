@@ -32,4 +32,4 @@ MarioCape:
 MarioFireball:
 	RTL
 
-print "Sets the player's checkpoint to this location."
+print "Sets the player's checkpoint to this location (place this 1 block above the ground)."

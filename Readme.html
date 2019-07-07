@@ -34,6 +34,12 @@ the level isn't reset, merely warping the player back to the last position. This
 This works by when the player touches a checkpoint block, it sets the destination coordinate to warp to. And when the player hits a warp block (or executes a code that sets a RAM used by this gimmick if you are non-block warps), the player will
 freeze for a few frames, then turns invisible and be dragged back to the checkpoint that is being set. During the drag-player, <kbd>$9D</kbd> is being set to prevent potential interactions with the sprites and the player will
 ignore all block interactions.<br><br>
-
-Note that if you try to warp the player without setting the destination coordinates first, depending on what RAM you're using, you'll be sent to the top-left corner of the level (<kbd>XPos:$0000 YPos:$0000</kbd>) or to a random spot (including outside the level
-boundaries and dying). Therefore make sure it isn't possible to trigger the warps without setting the checkpoints. This can be fixed by simply placing the destination warp blocks where the player spawns in every level that uses the wraps.
+<h2>Notes</h2>
+<ul>
+<li>If you try to warp the player without setting the destination coordinates first, depending on what RAM you're using, you'll be sent to the top-left corner of the level (<kbd>XPos:$0000 YPos:$0000</kbd>) or to a random spot (including outside the level
+boundaries and dying). Therefore make sure it isn't possible to trigger the warps without setting the checkpoints. This can be fixed by simply placing the destination warp blocks where the player spawns in every level that uses the wraps.</li>
+</ul>
+<hr>
+<h2>Level placements</h2>
+The blocks to set the warp destination are sorted as columns like so:<br>
+<img src="Readme_files/BlockPlacements.png">
