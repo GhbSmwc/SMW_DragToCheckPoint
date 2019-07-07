@@ -83,8 +83,9 @@ WarpToLastCheckpointRoutineStart:
 	LDA $00						;|
 	STA $7B						;|
 	LDA $02						;|
-	STA $7D						;/
-	
+	STA $7D						;|
+	LDA #$FF					;|
+	STA $78						;/
 	
 	
 	
