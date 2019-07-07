@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<style>
+			html {
+			background-color: #000207;
+			color: white;
+			font-family: sans-serif;
+			}
+			
+			table, th, td {
+			border: 1px solid white;
+			border-collapse: collapse;
+			}
+			
+			span.NoLineBreak {
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+<body>
+<center><h1>Respawn to last checkpoint (without reloading the level)</h1><br>
+By <a href="https://www.smwcentral.net/?p=profile&id=18802">GreenHammerBro</a></center>
+
+Not to be confused to SMW's midpoint system, as that are used when the player returns to the overworld map by dying or START+SELECT and also the &ldquo;<a href="https://www.smwcentral.net/?p=section&a=details&id=18751">retry patch</a>&rdquo;.
+As those resets the level upon returning.<br><br>
+
+This ASM gimmick installs a &ldquo;player recall&rdquo; system similar to in the game <i>Legend of Zelda</i> series when you fall into a bottomless pit or the game <i>Hollow Knight</i> when touching the spikes. When this happens,
+the level isn't reset, merely warping the player back to the last position. This is to solves the problem with designing obstacles when making levels, the maker have only two decisions:
+<ul>
+<li>Make these obstacles an instant-kill. Often frustrates the player for losing potentially lots of progress.</li>
+<li>Make these obstacles only a damage (not always a kill). This often have an exploit of &ldquo;damage boosting&rdquo; (the act of the player trying to get through them while being invulnerable between each damage).</li>
+</ul>
+
+This works by when the player touches a checkpoint block, it sets the destination coordinate to warp to. And when the player hits a warp block (or executes a code that sets a RAM used by this gimmick if you are non-block warps), the player will
+freeze for a few frames, then turns invisible and be dragged back to the checkpoint that is being set. During the drag-player, <kbd>$9D</kbd> is being set to prevent potential interactions with the sprites and the player will
+ignore all block interactions.<br><br>
+
+Note that if you try to warp the player without setting the destination coordinates first, depending on what RAM you're using, you'll be sent to the top-left corner of the level (<kbd>XPos:$0000 YPos:$0000</kbd>) or to a random spot (including outside the level
+boundaries and dying). Therefore make sure it isn't possible to trigger the warps without setting the checkpoints. This can be fixed by simply placing the destination warp blocks where the player spawns in every level that uses the wraps.
